@@ -62,7 +62,7 @@ Version 2.0.0 ships with 12 test cases in `evals/`, including two that check the
 
 ## Background
 
-Built by [Jiyad Ahsan](https://jiyad-ahsan.medium.com), founder of Telos, a Malaysia-based AI strategy and digital transformation consultancy.
+Built by [Jiyad Ahsan](https://jiyad-ahsan.medium.com).
 
 ## License
 
