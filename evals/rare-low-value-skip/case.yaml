@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: rare-low-value-skip
+expected_outcome: |
+  The response says plainly that this is not worth automating with an agent or any custom build: it is
+  rare and cheap, so no architecture pays back. It may suggest a saved template.

@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: tracking-number-routine
+expected_outcome: |
+  Routine work resolved at the first question: the build is a script. The response may note that a
+  single model call at the parse step can handle messy formats across carriers, but the decision logic
+  stays deterministic and it explicitly steers away from an agent.

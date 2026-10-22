@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: compound-vendor-onboarding
+expected_outcome: |
+  The request is split into separate decisions rather than classified as one type, producing a table
+  that spans several types. Document collection is routine (script), the registry mismatch
+  investigation is verifiable (loop), credit terms are learnable (graph), and the out-of-policy
+  strategic vendor is judgment (single call, person decides). Each row says where the person sits.

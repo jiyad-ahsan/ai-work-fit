@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: refund-stakes-signoff
+expected_outcome: |
+  The response separates detecting late orders and applying the refund rule (routine, script) from the
+  payout, which is irreversible and reaches outside the company, so a person approves it or approves
+  above a limit. The stakes change who signs off, not the type of work.

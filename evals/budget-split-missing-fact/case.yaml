@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: budget-split-missing-fact
+expected_outcome: |
+  The response refuses to pick one type because the classification hinges on a fact the request does
+  not contain: whether a measurable target and channel history exist to optimize against. It names
+  that fact and answers both branches: verifiable and a loop if the check exists, judgment and a
+  single call if it does not. It does not simply endorse building the agent.

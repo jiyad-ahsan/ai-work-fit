@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: graduate-learnable-to-script
+expected_outcome: |
+  The response says this work has graduated from learnable to routine and should be demoted to a
+  script, validated against a sample of past tagged tickets, with a model kept at most for the messy
+  residual cases. It notes the cost and reliability benefit.

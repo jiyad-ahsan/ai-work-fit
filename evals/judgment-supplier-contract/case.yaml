@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: judgment-supplier-contract
+expected_outcome: |
+  Judgment work: there is no external check on the outcome that resolves before the commitment, so the
+  build is a single call that prepares a comparison for the accountable person, who decides and owns
+  it. The response does not recommend an agent loop or repeated generation.

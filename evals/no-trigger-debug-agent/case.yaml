@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: no-trigger-debug-agent
+expected_outcome: |
+  This is a debugging question about a specific framework and error. The response helps diagnose and
+  fix the retry and timeout handling and does not run the work-classification flow.

@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: weak-check-conversion-agent
+expected_outcome: |
+  The response does not simply label this verifiable and recommend a loop. It tests whether the check
+  is good enough: conversion is noisy and slow at that traffic, and it can be gamed by a change that
+  raises sign-ups without raising real value. It recommends not looping, and instead a graph or human-
+  approved experiments, or building a better check first.

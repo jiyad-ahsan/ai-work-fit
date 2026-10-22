@@ -1,34 +1,36 @@
 # Testing
 
-How this skill was validated, and what correct behavior looks like. If you modify the skill, re-run these three cases, they cover the three behaviors that matter most.
+Twelve cases live in `evals/`, one folder each, in the layout used by `claude plugin eval`. If you change the skill, re-run all of them. Ten cover behaviors the skill must get right, and two check that it stays out of the way.
 
-## Test 1: Compound workflow splitting
+## Running them
 
-**Input:** "We want to automate our entire vendor onboarding process."
+**By hand (works anywhere).** For each case, open `evals/<case>/prompt.md`, give Claude the prompt with the skill installed, and check the response against the statements in `evals/<case>/graders/`. Each statement is a single pass/fail check.
 
-**Expected behavior:** The skill must not classify the request as one type. It should split the workflow into component decisions and classify each, producing a table spanning multiple types. A reasonable output:
+**With Claude Code** (v2.1.269 or later), from the repo root:
 
-| Task | Type | Build |
+```
+claude plugin eval . --allow-tools Read,Glob,Grep,Skill
+```
+
+It runs every case with and without the skill and writes a report under `evals/results/`. These are real model runs and are billed.
+
+## What each case catches
+
+| Case | Behavior it protects | Failure it catches |
 |---|---|---|
-| Collect standard onboarding documents (W-9, insurance cert, bank details) | Routine | Script |
-| Assess a new vendor's risk profile and set initial credit terms | Learnable | Graph |
-| Investigate a flagged compliance mismatch against a business registry | Verifiable | Loop (agent) |
-| Onboard a strategically important but higher-risk vendor outside normal policy | Judgment | Single call |
+| `compound-vendor-onboarding` | Split a bundle into decisions, classify each, name a human role for each | Classifying the whole bundle as one type |
+| `budget-split-missing-fact` | Name the missing fact and answer both branches | Defaulting to "build the agent" because the user said "agent" |
+| `tracking-number-routine` | Routine work gets a script; a model only at the parse step | Dressing a fixed mapping up as AI work |
+| `weak-check-conversion-agent` | Test whether the check is good enough to loop against | Calling anything with a number "verifiable" and building an unattended loop |
+| `prioritize-five-processes` | Rank by payoff, using volume as well as type | Ranking on type alone, or putting a twice-a-year task first |
+| `refund-stakes-signoff` | Irreversible, outward-facing actions get a person's sign-off | An autonomous agent moving money |
+| `rare-low-value-skip` | "Don't build it" is a legitimate answer | Inventing an architecture for a twenty-minute quarterly task |
+| `scout-undocumented-process` | An agent as a temporary scout, with a plan to replace it | Leaving the scout as the permanent system, or refusing to use one |
+| `graduate-learnable-to-script` | Demote learnable work to a script once the pattern is stable | Paying for a model call forever on solved work |
+| `judgment-supplier-contract` | Judgment gets a single call and a named owner | Looping or drafting repeatedly with nothing to check against |
+| `no-trigger-system-prompt` | Stay out of prompt-editing requests | The skill taking over a request it was not built for |
+| `no-trigger-debug-agent` | Stay out of agent-debugging requests | The skill taking over a request it was not built for |
 
-**Failure mode this catches:** classifying a bundle as a single type, usually whichever type the most prominent-sounding sub-task suggests.
+## Validation status
 
-## Test 2: Missing-fact ambiguity
-
-**Input:** "We're building an agent to decide our marketing budget split across channels next quarter."
-
-**Expected behavior:** The skill should refuse to pick a single type, because the classification hinges on a fact the request doesn't contain: whether a measurable target (ROAS/CAC goal, conversion number) and channel history exist to optimize against. It should name that fact explicitly and answer both branches, verifiable → loop if the check exists, judgment → single call if it doesn't.
-
-**Failure mode this catches:** defaulting to "verifiable, build the agent" because the user said the word "agent." The skill exists precisely to resist that bias.
-
-## Test 3: Clean routine work
-
-**Input:** "Extract the tracking number from carrier shipping-confirmation emails and log it against the order."
-
-**Expected behavior:** Routine, resolved at the first diagnostic question, build a script. Ideally it also notes the acceptable nuance: if emails are messy across carriers, a single model call may do the extraction more robustly than regex, but that's still a call inside a script, never an agent.
-
-**Failure mode this catches:** type inflation, dressing up a fixed input-output mapping as AI work.
+Version 2.0.0 was checked against all twelve cases (45 assertions, all passing) by the same assistant that wrote the changes. That is a sanity check, not an independent validation. It has not yet been run through `claude plugin eval`, and it has not been tested across Haiku, Sonnet, and Opus, which behave differently with the same instructions. If you run the suite and a case fails, please open an issue with the prompt and the response.
