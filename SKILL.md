@@ -15,7 +15,7 @@ It is the operational version of two essays:
 
 ## The flow
 
-1. Split the request into its separate decisions. A request phrased as one workflow is almost always a bundle, and classifying the bundle as one thing is the most common way to get this wrong.
+1. Split the request into its separate decisions. A request phrased as one workflow is usually a bundle, and classifying the bundle as one thing is the most common way to get this wrong. But split only into decisions the person actually described: a single, simple task is not a bundle, and inventing sub-decisions for it is the opposite mistake.
 2. Classify each decision (Step 1).
 3. Match each to a build, a model tier, and a human role (Step 2).
 4. Run the checks that can overrule the match (Step 3).
@@ -86,6 +86,8 @@ Sometimes the description alone cannot settle it. Most often the missing fact is
 Don't guess, and don't default to the more impressive answer because the person said "agent". Name the specific fact that decides it, then give the classification and build for each branch. Two clean conditional answers beat one confident wrong one, and surfacing the missing fact is often the most valuable thing this skill does, because it is usually the thing the person had not realized was load-bearing. If the fact is quick for them to supply, end by asking for just that one thing.
 
 ## Output format
+
+Keep the answer in proportion to the request. A single task that resolves at the first question gets the single-task format below and a few sentences, not a table. Add a deciding fact, guardrails, or a ranking caveat only when it changes the answer. The fuller structure is for bundles and rankings.
 
 For a single task:
 

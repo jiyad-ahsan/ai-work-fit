@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-The response recommends an agent only as a temporary scout to discover the rules from past expense claims
+The response recommends using a model or agent to discover the implicit rules from past expense claims as a temporary or one-off discovery step, not as the permanent system that decides claims

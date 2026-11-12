@@ -8,6 +8,10 @@
 - Example 7 (paying matched invoices) now classifies exact invoice-to-PO matching as routine with a script, consistent with the classification order and with Example 1. It previously called it verifiable and offered a loop.
 - Four test cases rewritten in new domains because their prompts repeated worked examples the skill ships with: `budget-split-missing-fact` is now `pricing-missing-fact`, `weak-check-conversion-agent` is now `weak-check-reply-rate-agent`, and `rare-low-value-skip` and `scout-undocumented-process` keep their names with new prompts.
 
+- **Proportionality.** `SKILL.md` now says to split only into decisions the person described, and to keep a simple single task to the short format, without a deciding fact, guardrails or a ranking caveat unless one changes the answer.
+- Five graders rewritten to test the behavior and not particular wording (pricing branches, scout, both loop recommendations, and the tracking-number model step, renamed `03-model-only-for-messy-text`).
+- `TESTING.md` now reports a real `claude plugin eval` run in place of the earlier self-graded check.
+
 ### Added
 - Two test cases where an agent loop is the right answer, `loop-test-suite-migration` and `loop-billing-reconciliation`, so the suite can catch the skill being too conservative. Both also assert loop guardrails and a human owner.
 

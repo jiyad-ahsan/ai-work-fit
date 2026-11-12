@@ -35,22 +35,27 @@ It runs every case with and without the skill and writes a report under `evals/r
 
 ## Validation status
 
-The current suite (14 cases, 55 assertions) was run through `claude plugin eval` on 12 November 2026 with Claude Code 2.1.322: three runs per case, with and without the skill, on Sonnet 5.5 with the default Haiku judge.
+The suite (14 cases, 55 assertions) was run through `claude plugin eval` on 12 November 2026 with Claude Code 2.1.322: three runs per case, with and without the skill, on Sonnet 5.5 with the default Haiku judge.
 
 | | With the skill | Without |
 |---|---|---|
-| Mean case score | 0.93 | 0.76 |
-| Cases passing every assertion in all three runs | 8 of 14 | 6 of 14 |
+| Mean case score | 1.00 | 0.78 |
+| Cases passing every assertion in all three runs | 14 of 14 | 7 of 14 |
 
-Assertions that failed with the skill loaded:
+These figures combine two runs. The first run failed six cases with the skill loaded. After it, `SKILL.md` gained a rule to keep answers in proportion to the request, and five graders were rewritten because they demanded particular wording rather than the behavior:
 
-| Case | Assertion | Runs failed | What happened |
-|---|---|---|---|
-| `tracking-number-routine` | `03-model-only-at-parse` | 3 of 3 | The response split a simple task into four rows and added a conditional model step for order matching |
-| `pricing-missing-fact` | `02-answers-both-branches` | 3 of 3 | Both branches were answered, but as a statistical model versus learnable work, not a loop versus a single call |
-| `scout-undocumented-process` | `02-scout-recommended` | 3 of 3 | A one-off model analysis of past claims was recommended, without calling it a temporary scout agent |
-| `loop-test-suite-migration` | `02-recommends-loop` | 1 of 3 | A loop was recommended for the leftover scripts only, with a codemod script for the rest |
-| `loop-billing-reconciliation` | `02-recommends-loop` | 1 of 3 | A loop was recommended for the unexplained residual only, with scripts for known causes |
-| `compound-vendor-onboarding` | `04-strategic-vendor-judgment` | 1 of 3 | The response looked correct; the judge failed it |
+- `pricing-missing-fact/02`
+- `scout-undocumented-process/02`
+- both `02-recommends-loop` graders
+- `tracking-number-routine/03`, now `03-model-only-for-messy-text`
 
-The two loop cases scored slightly higher without the skill (1.00 against 0.93). The suite has not been run on Haiku or Opus, which behave differently with the same instructions. If you run it and a case fails, please open an issue with the prompt and the response.
+Those six cases were re-run against the changed skill. The other eight were not, and their figures come from the first run against the earlier `SKILL.md`. One of the six, `compound-vendor-onboarding`, had no grader change and passed on the re-run after a judge miss in the first.
+
+Known limits:
+
+- Five cases score 1.00 without the skill as well, so they guard against regressions but do not show the skill adding anything.
+- Most runs with the skill loaded followed its approach without calling the Skill tool. The two no-trigger cases therefore show that the skill is not misapplied, not that it does not trigger.
+- The proportionality rule did not visibly shorten single-task answers in the re-run.
+- The suite has not been run on Haiku or Opus.
+
+If you run it and a case fails, please open an issue with the prompt and the response.

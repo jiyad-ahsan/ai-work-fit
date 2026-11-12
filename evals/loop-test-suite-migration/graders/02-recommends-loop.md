@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-The recommended build is an agent loop, and the response does not steer the user to a script, a graph, or a single call instead
+The response recommends an agent loop for the part of the work where each case differs, and does not steer the user away from an agent altogether. Using scripts for the uniform or already-known parts is acceptable
