@@ -35,4 +35,22 @@ It runs every case with and without the skill and writes a report under `evals/r
 
 ## Validation status
 
-Version 2.0.0 was checked against its twelve cases (45 assertions, all passing) by the same assistant that wrote the changes. That is a sanity check, not an independent validation. Since then four of those cases have been rewritten in new domains and two loop cases added (14 cases, 55 assertions), and the rewritten and new cases have not been checked at all. The suite has not yet been run through `claude plugin eval`, and it has not been tested across Haiku, Sonnet, and Opus, which behave differently with the same instructions. If you run the suite and a case fails, please open an issue with the prompt and the response.
+The current suite (14 cases, 55 assertions) was run through `claude plugin eval` on 12 November 2026 with Claude Code 2.1.322: three runs per case, with and without the skill, on Sonnet 5.5 with the default Haiku judge.
+
+| | With the skill | Without |
+|---|---|---|
+| Mean case score | 0.93 | 0.76 |
+| Cases passing every assertion in all three runs | 8 of 14 | 6 of 14 |
+
+Assertions that failed with the skill loaded:
+
+| Case | Assertion | Runs failed | What happened |
+|---|---|---|---|
+| `tracking-number-routine` | `03-model-only-at-parse` | 3 of 3 | The response split a simple task into four rows and added a conditional model step for order matching |
+| `pricing-missing-fact` | `02-answers-both-branches` | 3 of 3 | Both branches were answered, but as a statistical model versus learnable work, not a loop versus a single call |
+| `scout-undocumented-process` | `02-scout-recommended` | 3 of 3 | A one-off model analysis of past claims was recommended, without calling it a temporary scout agent |
+| `loop-test-suite-migration` | `02-recommends-loop` | 1 of 3 | A loop was recommended for the leftover scripts only, with a codemod script for the rest |
+| `loop-billing-reconciliation` | `02-recommends-loop` | 1 of 3 | A loop was recommended for the unexplained residual only, with scripts for known causes |
+| `compound-vendor-onboarding` | `04-strategic-vendor-judgment` | 1 of 3 | The response looked correct; the judge failed it |
+
+The two loop cases scored slightly higher without the skill (1.00 against 0.93). The suite has not been run on Haiku or Opus, which behave differently with the same instructions. If you run it and a case fails, please open an issue with the prompt and the response.
