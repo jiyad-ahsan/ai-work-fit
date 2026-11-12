@@ -15,7 +15,7 @@ It is the operational version of two essays:
 
 ## The flow
 
-1. Split the request into its separate decisions. A request phrased as one workflow is almost always a bundle, and classifying the bundle as one thing is the most common way to get this wrong.
+1. Split the request into its separate decisions. A request phrased as one workflow is usually a bundle, and classifying the bundle as one thing is the most common way to get this wrong. But split only into decisions the person actually described: a single, simple task is not a bundle, and inventing sub-decisions for it is the opposite mistake.
 2. Classify each decision (Step 1).
 3. Match each to a build, a model tier, and a human role (Step 2).
 4. Run the checks that can overrule the match (Step 3).
@@ -67,7 +67,9 @@ If it fails, do not build the loop. The work is still verifiable in principle, b
 
 **Does the loop have guardrails?** Cap iterations and spend. Give it the least access that still lets it work. Define what it does when the check cannot pass (stop and escalate, don't keep trying). Log the attempts so a person can see what it did.
 
-**Do the stakes change who signs off?** If an action is irreversible, regulated, or reaches outside the organization (moving money, messaging customers, changing production), a person approves the final action whatever the type. This changes who, not what type of work it is.
+**Do the stakes change who signs off?** If an action is irreversible, regulated, or reaches outside the organization (moving money, messaging customers, changing production), a person approves the final action whatever the type. At volume that approval can cover a batch (a payment run) or apply only above a limit the person sets, so the sign-off does not cancel the automation. This changes who, not what type of work it is.
+
+**Does the cost of a wrong call change the review rate?** Reviewing a sample suits calls that are cheap to get wrong and easy to reverse. Where one wrong call seriously affects a person (a rejected applicant, a denied claim), a person reviews every adverse call from that step, not a sample.
 
 **Is it worth building at all?** If the task is rare, cheap, or already takes a person a few minutes, leaving it manual is a legitimate answer. Say so plainly rather than inventing an architecture for it.
 
@@ -84,6 +86,8 @@ Sometimes the description alone cannot settle it. Most often the missing fact is
 Don't guess, and don't default to the more impressive answer because the person said "agent". Name the specific fact that decides it, then give the classification and build for each branch. Two clean conditional answers beat one confident wrong one, and surfacing the missing fact is often the most valuable thing this skill does, because it is usually the thing the person had not realized was load-bearing. If the fact is quick for them to supply, end by asking for just that one thing.
 
 ## Output format
+
+Keep the answer in proportion to the request. A single task that resolves at the first question gets the single-task format below and a few sentences, not a table. Add a deciding fact, guardrails, or a ranking caveat only when it changes the answer. The fuller structure is for bundles and rankings.
 
 For a single task:
 

@@ -42,7 +42,7 @@ Note: the ranking assumes the reorder alert runs daily and the price report mont
 
 "We want AI to screen resumes."
 
-"Screen" hides two decisions. Rejecting applicants who lack a required license or work authorization is routine (script). Choosing who gets a phone screen from the rest is learnable (graph, model at the ranking step), and because it affects people, a person reviews every rejection from that step, not a sample. Deciding who gets the offer is judgment (single call; the model summarizes, the hiring manager decides).
+"Screen" hides two decisions. Rejecting applicants who lack a required license or work authorization is routine (script). Choosing who gets a phone screen from the rest is learnable (graph, model at the ranking step), and because one wrong rejection seriously affects a person, the review rate goes up: a person reviews every rejection from that step, not a sample. Deciding who gets the offer is judgment (single call; the model summarizes, the hiring manager decides).
 
 ## 4. A loop with a weak check
 
@@ -68,4 +68,4 @@ The work is probably learnable, but the organization cannot draw the graph becau
 
 "Let an agent pay supplier invoices that match the purchase order."
 
-The match is verifiable (the invoice reconciles to the PO and the goods receipt), so a loop or even a script is right for the matching. But paying is irreversible and reaches outside the company, so a person approves the payment run, or approves any invoice above a limit they set. This changes who signs off, not the type of work.
+Matching an invoice to the PO and the goods receipt on exact fields is routine, so the matching is a script, with mismatches going to an exceptions queue a person owns. No agent is needed. But paying is irreversible and reaches outside the company, so a person approves the payment run, or approves any invoice above a limit they set. This changes who signs off, not the type of work.

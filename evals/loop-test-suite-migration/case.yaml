@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: loop-test-suite-migration
+expected_outcome: |
+  Verifiable work with a strong check: each script differs so no fixed rewrite rule works, but the
+  existing unit tests say whether a migration is right. The build is an agent loop iterating against
+  the test suite, with guardrails, and a person who owns the check and receives the scripts the loop
+  cannot get passing. The response does not talk the user out of the agent.
