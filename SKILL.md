@@ -67,7 +67,9 @@ If it fails, do not build the loop. The work is still verifiable in principle, b
 
 **Does the loop have guardrails?** Cap iterations and spend. Give it the least access that still lets it work. Define what it does when the check cannot pass (stop and escalate, don't keep trying). Log the attempts so a person can see what it did.
 
-**Do the stakes change who signs off?** If an action is irreversible, regulated, or reaches outside the organization (moving money, messaging customers, changing production), a person approves the final action whatever the type. This changes who, not what type of work it is.
+**Do the stakes change who signs off?** If an action is irreversible, regulated, or reaches outside the organization (moving money, messaging customers, changing production), a person approves the final action whatever the type. At volume that approval can cover a batch (a payment run) or apply only above a limit the person sets, so the sign-off does not cancel the automation. This changes who, not what type of work it is.
+
+**Does the cost of a wrong call change the review rate?** Reviewing a sample suits calls that are cheap to get wrong and easy to reverse. Where one wrong call seriously affects a person (a rejected applicant, a denied claim), a person reviews every adverse call from that step, not a sample.
 
 **Is it worth building at all?** If the task is rare, cheap, or already takes a person a few minutes, leaving it manual is a legitimate answer. Say so plainly rather than inventing an architecture for it.
 

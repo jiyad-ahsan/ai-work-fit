@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+- **Sign-off at volume.** The stakes rule now says in `SKILL.md` that a person's approval can cover a batch or apply only above a limit they set. The examples and tests already allowed this; the rule itself did not.
+- **Review rate.** New check: where one wrong call seriously affects a person, a person reviews every adverse call from that step, not a sample. The hiring example relied on this without the skill stating it.
+- Example 7 (paying matched invoices) now classifies exact invoice-to-PO matching as routine with a script, consistent with the classification order and with Example 1. It previously called it verifiable and offered a loop.
+- Four test cases rewritten in new domains because their prompts repeated worked examples the skill ships with: `budget-split-missing-fact` is now `pricing-missing-fact`, `weak-check-conversion-agent` is now `weak-check-reply-rate-agent`, and `rare-low-value-skip` and `scout-undocumented-process` keep their names with new prompts.
+
+### Added
+- Two test cases where an agent loop is the right answer, `loop-test-suite-migration` and `loop-billing-reconciliation`, so the suite can catch the skill being too conservative. Both also assert loop guardrails and a human owner.
+
 ## 2.0.0 (October 2026)
 
 The skill now answers who stays accountable for each piece of work, not only what to build, and it covers the situations the first version only gestured at.

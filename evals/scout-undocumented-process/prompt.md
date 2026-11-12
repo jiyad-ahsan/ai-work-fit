@@ -5,4 +5,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-Returns here get approved in about a dozen different ways depending on who's on shift and nobody has written the policy down. Could AI just figure out the policy for us?
+Expense claims that fall outside our written policy get approved or rejected differently depending on which finance person picks them up, and the real rules only live in people's heads. Could AI work out what the rules actually are?

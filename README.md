@@ -51,14 +51,14 @@ The docs change often, so check the [Agent Skills overview](https://platform.cla
 ```
 SKILL.md                  the skill
 references/examples.md    worked examples, loaded only when needed
-evals/                    12 test cases (see TESTING.md)
+evals/                    14 test cases (see TESTING.md)
 TESTING.md                how to run the tests and what each one catches
 CHANGELOG.md              version history
 ```
 
 ## Testing and versions
 
-Version 2.0.0 ships with 12 test cases in `evals/`, including two that check the skill stays out of the way when someone just wants a prompt edited or a bug fixed. See [TESTING.md](TESTING.md) for how to run them and for the current validation status. Version history is in [CHANGELOG.md](CHANGELOG.md).
+There are 14 test cases in `evals/`, including two where an agent loop is the right answer and two that check the skill stays out of the way when someone just wants a prompt edited or a bug fixed. See [TESTING.md](TESTING.md) for how to run them and for the current validation status. Version history is in [CHANGELOG.md](CHANGELOG.md).
 
 ## Background
 
