@@ -5,9 +5,9 @@ description: Decides who or what should do a task or workflow, and how to build 
 
 # AI Work Fit
 
-Most disappointment with AI projects traces back to one mistake: reaching for the most impressive architecture instead of the right one. This skill asks two questions in order. What kind of work is this? Then, given that, what is the cheapest build that does the job, and who stays accountable for what?
+Most disappointment with AI projects traces back to one mistake: reaching for the most impressive architecture instead of the right one. This skill asks two questions in order. What kind of work is this? Then, given that, what is the appropriate level of automation, the most efficient build that does the job, and who stays accountable for what?
 
-Those are different questions, and people blur them. A lot of what looks like an AI problem is a software problem in costume, and a lot of what gets built as an autonomous agent would run just as well, and far more cheaply, as a fixed sequence of steps with a model plugged in only where real interpretation happens. The aim is not to be conservative with AI. It is to avoid paying for autonomy that buys nothing.
+Those are different questions, and people blur them. A lot of what looks like an AI problem is a software problem in costume, and a lot of what gets built as an autonomous agent would run just as well, and far more efficiently, as a fixed sequence of steps with a model plugged in only where real interpretation happens. The aim is not to be conservative with AI. It is to optimize workflow automation: match each task to the level of automation it needs, and avoid paying for autonomy that buys nothing.
 
 It is the operational version of two essays:
 - [Not All AI Work Is AI Work](https://jiyad-ahsan.medium.com/not-all-ai-work-is-ai-work-23f2c9d80ce6)
@@ -49,7 +49,7 @@ Terms, used the same way throughout:
 | Verifiable | Loop, with the check wired in as the thing it iterates against. | The strongest model the budget allows. Every iteration is checked, so extra capability compounds into correct results. | The agent iterates. A person defines and owns the check, sets the budget, and receives the escalation when the check cannot be met. |
 | Judgment | Single call. One good draft or one clear rundown of options. | One strong call. | A person decides and owns the outcome. The model prepares the draft or the options. |
 
-Why these builds: a drawn route is cheaper and easier to debug than a model improvising it every time, which is why learnable work gets a graph. The check is what makes autonomy converge instead of wander, which is why a loop needs one. And with judgment there is no outcome to generate multiple drafts against, so more generation just adds a step before a person still has to decide.
+Why these builds: a drawn route is simpler, more efficient and easier to debug than a model improvising it every time, which is why learnable work gets a graph. The check is what makes autonomy converge instead of wander, which is why a loop needs one. And with judgment there is no outcome to generate multiple drafts against, so more generation just adds a step before a person still has to decide.
 
 If a task looks learnable but the organization does not yet know its own process well enough to draw the graph, an agent is a legitimate temporary scout for discovering the route. Say so, and say that the agent should be replaced by a fixed graph once the route is known.
 
@@ -59,7 +59,7 @@ If a step is physical or relational (a face-to-face conversation, a signature), 
 
 **Is the check good enough to loop against?** A weak check turns a loop into an expensive way to be confidently wrong. Test it four ways:
 - Independent: it does not depend on the agent's own judgment of its work.
-- Fast and cheap enough to run on every iteration.
+- Quick enough to run on every iteration without straining the budget.
 - Faithful: it measures the real goal, not a proxy the agent can satisfy without achieving the goal (tests that pass while the behavior is wrong).
 - Conclusive within the time the loop runs, not months later.
 
@@ -69,15 +69,15 @@ If it fails, do not build the loop. The work is still verifiable in principle, b
 
 **Do the stakes change who signs off?** If an action is irreversible, regulated, or reaches outside the organization (moving money, messaging customers, changing production), a person approves the final action whatever the type. At volume that approval can cover a batch (a payment run) or apply only above a limit the person sets, so the sign-off does not cancel the automation. This changes who, not what type of work it is.
 
-**Does the cost of a wrong call change the review rate?** Reviewing a sample suits calls that are cheap to get wrong and easy to reverse. Where one wrong call seriously affects a person (a rejected applicant, a denied claim), a person reviews every adverse call from that step, not a sample.
+**Does the cost of a wrong call change the review rate?** Reviewing a sample suits calls that are low-stakes and easy to reverse. Where one wrong call seriously affects a person (a rejected applicant, a denied claim), a person reviews every adverse call from that step, not a sample.
 
-**Is it worth building at all?** If the task is rare, cheap, or already takes a person a few minutes, leaving it manual is a legitimate answer. Say so plainly rather than inventing an architecture for it.
+**Is it worth building at all?** If the task is rare, or already takes a person a few minutes, leaving it manual is a legitimate answer, because automation that costs more effort than it saves is not efficient. Say so plainly rather than inventing an architecture for it.
 
 **Has the type changed?** Learnable work graduates to routine once a written rule reproduces a person's calls on a sample of past cases. In the other direction, routine work whose inputs start to drift (new formats, new suppliers) has become learnable.
 
 ## Step 4: Ranking several candidates
 
-Type tells you how cheap a build is. Volume tells you what it pays back. A routine task that runs twice a year is a worse first project than a learnable task that runs thousands of times, so don't rank on type alone. For each candidate note how often it runs, what each run costs now (person-minutes, or the cost of errors), and readiness (inputs digital, process documented, a check available). Rank on payoff against build effort. When payoff is similar, the order is routine, then learnable, then verifiable with a strong check, then judgment (assist only). State that the ranking is an estimate from what you were told, and name the one number that would change it.
+Type tells you how much automation fits. Volume tells you what it pays back. A routine task that runs twice a year is a worse first project than a learnable task that runs thousands of times, so don't rank on type alone. For each candidate note how often it runs, what each run costs now (person-minutes, or the cost of errors), and readiness (inputs digital, process documented, a check available). Rank on payoff against build effort. When payoff is similar, the order is routine, then learnable, then verifiable with a strong check, then judgment (assist only). State that the ranking is an estimate from what you were told, and name the one number that would change it.
 
 ## When the type depends on a missing fact
 

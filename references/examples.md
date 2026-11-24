@@ -56,7 +56,7 @@ Do not build the loop. Build a graph: a model proposes variants, a fixed experim
 
 "Should we build an agent for our quarterly board-deck formatting? It takes about twenty minutes."
 
-Leave it manual, or use a saved template. The task is rare and cheap, so no architecture pays back. Say so plainly.
+Leave it manual, or use a saved template. The task is rare and quick, so no architecture pays back. Say so plainly.
 
 ## 6. A scout agent for an undocumented process
 

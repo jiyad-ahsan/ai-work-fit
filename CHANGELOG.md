@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.1 (November 2026)
+
+Wording only, no change to how tasks are classified. The skill now frames its goal as matching each task to the appropriate level of automation, an attempt to make workflow automation efficient, and no longer describes the recommended build as the "cheapest".
+
+### Changed
+- `SKILL.md`, `README.md` and the examples drop "cheapest build" and "cheap" in favor of "appropriate level of automation", "efficient", "low-stakes" and "quick".
+- The "worth building at all" check now says automation that costs more effort than it saves is not efficient.
+
 ## 2.1.0 (November 2026)
 
 Fixes three places where the skill contradicted itself, rebuilds the test suite so a pass means something, and records the first real `claude plugin eval` run: 14 of 14 cases pass with the skill, mean score 1.00 against 0.78 without it.

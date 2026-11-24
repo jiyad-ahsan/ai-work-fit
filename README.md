@@ -1,6 +1,6 @@
 # AI Work Fit
 
-A Claude Skill that decides who, or what, should do a piece of work. It sorts a task or workflow into one of four types, routine, learnable, verifiable, or judgment, then recommends the cheapest build that actually fits (a script, a human-drawn graph, an agent loop, or a single model call with a person staying in charge) and says where the person sits.
+A Claude Skill that decides who, or what, should do a piece of work. It sorts a task or workflow into one of four types, routine, learnable, verifiable, or judgment, then recommends the level of automation the work actually calls for (a script, a human-drawn graph, an agent loop, or a single model call with a person staying in charge) and says where the person sits. It is an attempt to make workflow automation efficient: each piece of work gets the build it needs, no more and no less.
 
 Most AI project disappointment comes from one mistake: reaching for the most autonomous architecture because it's the most impressive, rather than the one the work actually needs. This skill operationalizes the framework from two essays:
 

@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-The reason given is that the task is rare, cheap, or takes only a few minutes
+The reason given is that the task is rare or takes only a few minutes
